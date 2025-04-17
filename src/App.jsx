@@ -1,29 +1,24 @@
-import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from './Layout';
-import Home from './Components/Home';
-import About from './Components/About';
-import Portfolio from './Components/Portfolio';
-import Contact from './Components/Contact';
-
-const routes = createBrowserRouter([
-  {
-    path: '/rt1',
-    element: <Layout/>,
-    children: [
-      {index:true, element: <Home/>},
-      {path: 'home', element: <Home/>},
-      {path:'about', element: <About/>},
-      {path:'portfolio', element: <Portfolio/>},
-      {path:'contact', element: <Contact/>},
-    ],
-  },
-]);
+// App.jsx
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Portfolio from "./Components/Portfolio";
+import Contact from "./Components/Contact";
 
 export default function App() {
   return (
-    <>
-      <RouterProvider router={routes}/>
-    </>
-  )
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  );
 }
