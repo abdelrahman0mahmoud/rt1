@@ -8,7 +8,7 @@ import Contact from './Components/Contact';
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: '/rt1',
     element: <Layout/>,
     children: [
       {index:true, element: <Home/>},
